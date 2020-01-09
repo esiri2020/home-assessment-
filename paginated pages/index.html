@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="Style.css">
+    <title>Posts</title>
+    
+</head>
+
+
+
+
+<body>
+    
+
+    <nav>
+        <div class="logo">
+            <h4>News App</h4>
+        </div>
+        
+       
+
+        <ul class="nav-links">
+            <li>
+                <a href="#", id="getArticles"> News Articles</a>
+            </li>
+            <li>
+                <a href="#", id="getComments"> Comments</a>
+            
+            </li>
+            <li>
+                <a href="#", id="getPosts"> JSON post</a>
+            </li>             
+            <a href="#", id="getContacts"> Contact</a> 
+            </li>
+        </ul>
+        
+        <div class="burger">
+            <div class="line_1"></div>
+            <div class="line_2"></div>
+            <div class="line_3"></div>
+        </div>
+
+        
+    </nav>
+
+    <header>
+        <h2> News </h2>
+    </header>
+    
+    <main>
+        
+        
+        <div class= "list" id= "list"> </div>
+       <div class= "pagenumbers" id="pagination"></div>
+         <h1 class "display-4 mb-4"> Fetch Api News</h1>
+            <!-- <div id="output"></div> -->
+            <hr>
+           
+            <!-- <form id="addArticle">
+                <h4>Add Article</h4>
+                <div class= "form-group">
+                    <input type="text" id="title" class = "form-control" placeholder="Title">
+                </div >
+                <div class= "form-group">
+                    <textarea id="body" class = "form-control"  placeholder="Type Article"></textarea>
+                </div>
+                <input type="submit" class= "btn btn-secondary" value="submit">        
+            
+            </form>   -->
+            
+        </div>
+    </main>
+    
+    <script source="main.js">
+    // document.getElementById('getComments').addEventListener
+    // ('click', getComments);
+    
+    // document.getElementById('getArticles').addEventListener
+    // ('click', getArticles);
+
+    
+    // document.getElementById('getPosts').addEventListener
+    // ('click', getPosts);
+
+   
+
+    // document.getElementById('getContact').addEventListener
+    // ('click', getContact);  
+
+    // document.getElementById('addArticle').addEventListener
+    // ('submit', addArticle);
+
+   
+
+    // function getComments(){
+
+    //     fetch('comments.json')
+    //     .then ((res) => res.json())
+    //     .then((data) => {
+    //         let output= '<h2> Comments </h2>';
+    //       data.forEach(function(comments){
+    //           output +=`
+            
+    //           <ul class ="list-group" mb-3>
+    //                 <li class= "list-group-item"> ID: ${comments.id}</li>
+    //                 <li class= "list-group-item"> Avatar: ${comments.avatar}</li>
+    //                 <li class= "list-group-item"> Author: ${comments.url}</li>
+    //                 <li class= "list-group-item"> Date Created: ${comments.createdAt}</li>
+
+    //             </ul>
+    //             <hr>
+    //           `
+    //       })
+            
+    //         document.getElementById('output').innerHTML = output;
+    //     })
+         
+    // }    
+
+    
+    // function getArticles(){
+    //     fetch('http://5e0df4b536b80000143db9ca.mockapi.io/etranzact/v1/article')
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //         let output = '<h2 class = "mb-4">News Articles</h2>';
+    //         data.forEach(function(article){
+    //             output += `
+    //                 <div  class= "card card-body mb-3">    
+    //                 <h3> <img src= ${article.avatar}  height="100%" width="100%" >
+    //                 <h3> Title: ${article.title}</h3>
+    //                 <h3> Author:<a href = ${article.url}> Read more..</a></h3>
+    //                 <h4> Created At: ${article.createdAt}</h4>
+                   
+    //                 <hr>
+                    
+    //                 <form  id="addComment">
+    //                     <h4> Add Comments </h4>
+    //                     <div class= "form-group">
+    //                         <input type="text" class = "form-control" id="Name" placeholder="Title">
+    //                     </div>
+    //                     <div  class= "form-group">
+    //                         <textarea id="comment"  class = "form-control" placeholder="Type in your comment here.."></textarea>
+    //                     </div>
+    //                     <input type="submit" class= "btn btn-secondary" value="submit">        
+    //                 </form>
+    //             </div>
+
+    //             <div class="pagenumbers" id="pagination">
+    //             </div> 
+                
+    //             `
+    //         })
+            
+    //         document.getElementById('output').innerHTML = output;
+    //     })
+    // }
+
+    function getPosts(){
+        fetch('posts.json')
+        .then ((res) => res.json())
+        .then((data) => {
+            let list = '<h2> JSON Posts</h2>' 
+           
+           data.forEach(function(post){
+               list += `
+               
+                <ul class ="list-group" mb-3>
+                    <li class= "list-group-item"> ID: ${post.id}</li>
+                    <li class= "list-group-item"> Avatar: ${post.avatar}</li>
+                    <li class= "list-group-item"> Author: ${post.url}</li>
+                    <li class= "list-group-item"> Date Created: ${post.createdAt}</li>
+
+                </ul>
+                <hr>
+       
+                `
+           })
+           document.getElementById('list').innerHTML = list;
+        })
+        
+    }   
+    
+    // function getContact(){
+
+    //     fetch('contact.json')
+    //     .then ((res) => res.json())
+    //     .then((data) => {
+    //         let output= '<h2> contacts </h2>';
+    //     data.forEach(function(contact){
+    //         output +=`
+            
+    //         <ul class ="list-group" mb-3>
+    //                 <li class= "list-group-item"> ID: ${contact.phone}</li>
+    //                 <li class= "list-group-item"> Name: ${contact.name}</li>
+    //                 <li class= "list-group-item"> Profile: ${contact.profile}</li>
+    //                 <li class= "list-group-item"> portfolio: ${contact.url}</li>
+
+    //             </ul>
+    //             <hr>
+    //         `;
+    //     });         
+    //         document.getElementById('output').innerHTML = output;
+    //     })
+
+    // }   
+
+    // function addArticle(e){
+    //     e.preventDefault();
+
+    //     let title = document.getElementById('title').value;
+    //     let article = document.getElementById('article').value;
+        
+    //     fetch('http://5e0df4b536b80000143db9ca.mockapi.io/etranzact/v1/article', {
+    //         method:'POST',
+    //         headers: {
+    //             'Accept': 'application/json, text/plain, */*',
+    //             'Content-type':'application/json'
+    //         },
+    //         article:JSON.stringify({title:title, article:article})
+    //     })
+    //     .then((res) => res.json)
+    //     .then((data) => console.log(data))
+    // }
+
+    
+    
+    </script>
+
+        <script source="app.js"></script>
+        
+</body>
+</html>
